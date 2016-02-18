@@ -1,8 +1,43 @@
 #include "polygon.h"
 
+
 Polygon::Polygon()
    {
    isClockwise = true;
+   isCurve = false;
+   }
+
+Polygon::Polygon(QList<QPoint> points, bool _isClockwise, bool _isCurve)
+   {
+   setIsClockwise(_isClockwise);
+   setIsCurve(_isCurve);
+   setVertices(points);
+   }
+
+void Polygon::clearVerts()
+   {
+   vertices.clear();
+   vertSequence.clear();
+   }
+
+void Polygon::appendVert(QPoint point)
+   {
+   vertices.append(point);
+   }
+
+void Polygon::setIsClockwise(bool value)
+   {
+   isClockwise = value;
+   }
+
+void Polygon::setIsCurve(bool value)
+   {
+   isCurve = value;
+   }
+
+void Polygon::setVertices(QList<QPoint> points)
+   {
+   vertices = QList(points);
    }
 
 
