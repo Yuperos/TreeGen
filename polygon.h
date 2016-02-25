@@ -7,8 +7,8 @@
 
 class Polygon
 {
-   QList<QPoint> vertices;
-   QList<*QPoint> vertSequence;
+   QList<QPoint*> vertices;
+   QList<QPoint*> vertSequence;
    bool isClockwise;
    bool isCurve;
 
@@ -20,10 +20,12 @@ public:
    void appendVert(QPoint point);
    void setIsClockwise(bool value);
    void setIsCurve(bool value);
-   void setVertices(QList<QPoint> points);
+   void setVertices(QList<QPoint *> points);
+   void linkPath();
 };
 
-static double getAngle(QPoint dstP, QPoint initP=0);
-static int quad(QPoint currP, QPoint initP=0, int clockwise=true);
+
+static double getAngle(QPoint dstP, QPoint initP=QPoint());
+static int quad(QPoint currP, QPoint initP=QPoint(), bool clockwise=true);
 
 #endif // POLYGON_H
